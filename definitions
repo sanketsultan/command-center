@@ -1,0 +1,11 @@
+| Task                                                                 | Command                                                                                                 |
+|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Create a POD                                                         | kubectl run nginx --image=nginx                                                                         |
+| Generate POD Manifest YAML file (don’t create it)                    | kubectl run nginx --image=nginx --dry-run=client -o yaml                                                |
+| Create a deployment                                                  | kubectl create deployment --image=nginx nginx                                                           |
+| Generate Deployment YAML file (don’t create it)                      | kubectl create deployment --image=nginx nginx --dry-run=client -o yaml                                  |
+| Generate Deployment with 4 Replicas                                  | kubectl create deployment --image=nginx nginx --replicas=4                                              |
+| Scale a deployment to 4 replicas                                     | kubectl scale deployment nginx --replicas=4                                                             |
+| Save deployment YAML to a file                                       | kubectl get deployment nginx -o yaml > nginx-deployment.yaml                                            |
+| Create a Service (ClusterIP) for redis pod on port 6379              | kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml                      |
+| Create a Service (NodePort) for nginx pod on port 80, node port 30080| kubectl expose pod nginx --port=80 --type=NodePort --name=nginx-service --node-port=30080 --dry-run=client -o yaml |
